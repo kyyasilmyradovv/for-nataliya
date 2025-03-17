@@ -1,0 +1,33 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "12345",
+    "database": "test-work",
+    "host": "localhost",
+    "dialect": "postgres",
+    "logging": false,
+    "pool": {
+      "max": 16,
+      "min": 0,
+      "acquire": 30000,
+      "idle": 50000
+    }
+  },
+  "production": {
+    "username": "postgres",
+    "password": "12345",
+    "database": "test-work",
+    "host": "localhost",
+    "dialect": "postgres",
+    "logging": false,
+    "dialectOptions": {
+      "keepAlive": true
+    },
+    "pool": {
+      "max": 16,
+      "min": 0,
+      "acquire": 30000,
+      "idle": 50000
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "test_work_backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development nodemon -e js,yaml,json server.js",
+    "create": "npx sequelize-cli db:create",
+    "up": "npx sequelize-cli db:migrate",
+    "down": "npx sequelize-cli db:migrate:undo"
+  },
+  "author": "Kyyas Ilmyradov",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.8.3",
+    "cluster": "^0.7.7",
+    "compression": "^1.8.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.0.3",
+    "os": "^0.1.2",
+    "pg": "^8.8.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.6",
+    "swagger-jsdoc": "^6.2.5",
+    "swagger-ui-express": "^5.0.0"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.6.1"
+  }
+}

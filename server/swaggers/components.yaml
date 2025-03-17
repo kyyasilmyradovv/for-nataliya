@@ -1,0 +1,37 @@
+components:
+  parameters:
+    offsetParam:
+      in: query
+      name: offset
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+      description: The number of items to skip
+    limitParam:
+      in: query
+      name: limit
+      required: true
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 50
+        default: 20
+      description: The numbers of items to return
+  responses:
+    NotFoundError:
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+              message:
+                type: string
+            example:
+              status: fail
+              message: Not Found
+    ServerError:
+      description: Unexpected error in the server side

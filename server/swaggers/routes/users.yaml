@@ -1,0 +1,78 @@
+paths:
+  /api/v1/users/update-balance:
+    post:
+      tags: [Users]
+      description: Update user's balance. Test api to send 10K requests simultaneusly.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - userId
+                - amount
+              properties:
+                userId:
+                  type: integer
+                  example: 1
+                amount:
+                  type: number
+                  example: 2
+                  minimum: 0
+                  maximum: 1000000
+      responses:
+        200:
+          description: User balance updated successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  data:
+                    type: object
+                    properties:
+                      updatedBalance:
+                        type: number
+                        example: 9998
+        400:
+          description: Bad Request – The input data is invalid.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: 'Invalid input data.'
+        409:
+          description: Conflict – Insufficient funds to perform the update.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: 'Insufficient funds.'
+        500:
+          description: Internal Server Error – An unexpected error occurred.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: 'An unexpected error occurred.'
